@@ -8,6 +8,24 @@ dall'utente è palindroma o meno. In Internet trovate degli esempi di parole pal
 let userWord = prompt('Inserisci una parola');
 console.log('La parola inserita è: ' + userWord);
 
+// Trasformo la stringa tutta in minuscolo così da non creare errori
+userWord = userWord.toLocaleLowerCase();
+console.log(`Stringa in minuscolo: "${userWord}"`);
+
 // Trasformo la parola in un array e scompongo ogni singolo carattere
-userWordArray = userWord.split("");
-console.log(userWordArray);
+userWordToArray = userWord.split("");
+console.log(userWordToArray);
+
+// Creo una copia dell'array e la inverto
+let reverseWordArray = userWordToArray.slice().reverse();
+console.log(reverseWordArray);
+
+// Trasformo l'array invertito in una stringa
+let reverseWord = reverseWordArray.join("");
+console.log(reverseWord);
+
+if (userWord == reverseWord) {
+    console.log(`La parola "${userWord}" è palindroma`);
+} else {
+    console.log(`La parola "${userWord}" non è palindroma`);
+}
