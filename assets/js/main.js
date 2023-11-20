@@ -12,20 +12,29 @@ console.log('La parola inserita è: ' + userWord);
 userWord = userWord.toLocaleLowerCase();
 console.log(`Stringa in minuscolo: "${userWord}"`);
 
-// Trasformo la parola in un array e scompongo ogni singolo carattere
-userWordToArray = userWord.split("");
-console.log(userWordToArray);
+let palindromeWord = palindrome(userWord);
 
-// Creo una copia dell'array e la inverto
-let reverseWordArray = userWordToArray.slice().reverse();
-console.log(reverseWordArray);
 
-// Trasformo l'array invertito in una stringa
-let reverseWord = reverseWordArray.join("");
-console.log(reverseWord);
+/*---------- FUNCTIONS ----------*/
 
-if (userWord == reverseWord) {
-    console.log(`La parola "${userWord}" è palindroma`);
-} else {
-    console.log(`La parola "${userWord}" non è palindroma`);
+function palindrome(word) {
+    // Trasformo la parola in un array e scompongo ogni singolo carattere
+    WordToArray = word.split("");
+    console.log(word);
+
+    // Creo una copia dell'array e la inverto
+    let reverseWordArray = WordToArray.slice().reverse();
+    console.log(reverseWordArray);
+
+    // Trasformo l'array invertito in una stringa
+    let reverseWord = reverseWordArray.join("");
+    console.log(reverseWord);
+
+    if (word == reverseWord) {
+        document.getElementById('palindrome_word').innerHTML = `La parola "${word.charAt(0).toUpperCase() + word.slice(1)}" è palindroma`;
+        console.log(`La parola "${word}" è palindroma`);
+    } else {
+        document.getElementById('palindrome_word').innerHTML = `La parola "${word.charAt(0).toUpperCase() + word.slice(1)}" non è palindroma`;
+        console.log(`La parola "${word}" non è palindroma`);
+    }
 }
